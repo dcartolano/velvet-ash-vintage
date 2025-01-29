@@ -1,8 +1,13 @@
+import './index.css';
+import Navigation from "../Navigation";
+
 const Header = () => {
     return (
-        <div>
-            <h3>Header</h3>
-        </div>
+        <header>
+            <div>
+                    <Navigation />
+                </div>
+        </header >
     );
 }
 
