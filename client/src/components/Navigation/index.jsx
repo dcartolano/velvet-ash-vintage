@@ -4,11 +4,13 @@ const Navigation = () => {
     return (
         <div>
             <nav className="navbar navbar-light bg-light">
+                {/* page title (brand) with logo and name */}
                 <a className="navbar-brand" href="/">
                     <img src={logo} width="50" height="50" className="d-inline-block align-center" alt=""></img>
-                        Velvet Ash Vintage
+                    Velvet Ash Vintage
                 </a>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                {/* collapseable option for list of pages */}
+                {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -16,6 +18,21 @@ const Navigation = () => {
                         <a className="nav-item nav-link" href="/about">About</a>
                         <a className="nav-item nav-link" href="/gallery">Gallery</a>
                         <a className="nav-item nav-link" href="/shop">Shop</a>
+                </div> */}
+                {/* dropdown option for list of pages */}
+                <div className="nav-item dropdown align-center">
+                    {/* option for 3 bar with dropdown arrow */}
+                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {/* option for 3 bar with collapse-style button */}
+                    {/* <a className="navbar-toggler" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> */}
+                    <span className="navbar-toggler-icon align-center"></span>
+                    </a>
+                    <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <a className="dropdown-item" href="/">Home</a>
+                        <a className="dropdown-item" href="/about">About</a>
+                        <a className="dropdown-item" href="/gallery">Gallery</a>
+                        <a className="dropdown-item" href="/shop">Shop</a>
+                    </div>
                 </div>
             </nav>
         </div>
