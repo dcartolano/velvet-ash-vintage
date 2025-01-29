@@ -3,6 +3,7 @@ import logo from '../../assets/vav-logo.png';
 const Navigation = () => {
     return (
         <div>
+            {/* <nav className="navbar navbar-expand navbar-light bg-light"> */}
             <nav className="navbar navbar-light bg-light">
                 {/* page title (brand) with logo and name */}
                 <a className="navbar-brand" href="/">
