@@ -1,6 +1,6 @@
 import express from 'express';
 // import db from './config/connection.js';
-import path from 'node:path'
+// import path from 'node:path'
 import dotenv from 'dotenv';
 import path from 'path';
 import routes from './routes/index.js'
