@@ -1,4 +1,4 @@
-import logo from '../../assets/vav-logo.png';
+import vavLogo from '../../assets/vav-logo.png';
 
 const Navigation = () => {
     return (
@@ -7,7 +7,7 @@ const Navigation = () => {
             <nav className="navbar navbar-light bg-light">
                 {/* page title (brand) with logo and name */}
                 <a className="navbar-brand" href="/">
-                    <img src={logo} width="50" height="50" className="d-inline-block align-center" alt=""></img>
+                    <img src={vavLogo} width="50" height="50" className="d-inline-block align-center" alt="Velvet Ash Vintage Logo"/>
                     Velvet Ash Vintage
                 </a>
                 {/* collapseable option for list of pages */}
