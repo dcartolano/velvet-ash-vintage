@@ -13,6 +13,8 @@ import Col from 'react-bootstrap/Col';
 import ThemeProvider from 'react-bootstrap/ThemeProvider'
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
+// import { Stack } from 'react-bootstrap';
+import Stack from 'react-bootstrap/Stack';
 
 const PhotosOnly = () => {
     return (
@@ -46,22 +48,31 @@ const PhotosOnly = () => {
         //         <Card.Img src={cbchmp}/>
         //     </Card>
         // </CardGroup>
-        <Container fluid>
-        <Row   className="g-0">
-          <Col>
-          <Image src={cbchmp} fluid />
-          </Col>
-          <Col>
-          <Image src={immcv} fluid />
-          </Col>
-          <Col>
-          <Image src={sss} fluid />
-          </Col>
-          <Col>
-          <Image src={wcfslb} fluid />
-          </Col>
-      </Row>
-      </Container>
+
+        <Container className="p-0" fluid>
+            <Row xxs={2} sm={4}  className="m-0">
+                <Col className="p-0">
+                    <Image src={cbchmp} fluid />
+                </Col>
+                <Col className="p-0">
+                    <Image src={immcv} fluid />
+                </Col>
+                <Col className="p-0">
+                    <Image src={sss} fluid />
+                </Col>
+                <Col className="p-0">
+                    <Image src={wcfslb} fluid />
+                </Col>
+            </Row>
+
+        </Container>
+
+        // <Stack direction="horizontal">
+        //     <Image src={cbchmp} fluid />
+        //     <Image src={immcv} fluid />
+        //     <Image src={sss} fluid />
+        //     <Image src={wcfslb} fluid />
+        // </Stack>
 
         // <Container className="photo-bar">
         //     <Image src={cbchmp} fluid />
