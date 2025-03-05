@@ -1,4 +1,3 @@
-import Image from 'react-bootstrap/Image';
 import cbchmp from '../../assets/crystal-bronze-candle-holders-mortar-pestle.jpeg';
 import immcv from '../../assets/iron-man-marble-coaster-vase.jpeg';
 import sss from '../../assets/shells-starfish-ship.jpeg';
@@ -7,6 +6,7 @@ import wcfslb from '../../assets/wooden-cup-fish-sticks-lobster-bowl.jpeg';
 // client/src/assets/shells-starfish-ship.jpeg
 // client/src/assets/wooden-cup-fish-sticks-lobster-bowl.jpeg
 
+import Image from 'react-bootstrap/Image';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
