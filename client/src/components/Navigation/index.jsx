@@ -6,7 +6,7 @@ const Navigation = () => {
         <div>
             {/* <nav className="navbar navbar-expand navbar-light bg-light"> */}
             <nav className="navbar navbar-light">
-                <Navbar></Navbar>
+                
                 {/* page title (brand) with logo and name */}
                 <a className="navbar-brand m-3 h1" href="/">
                     <img src={vavLogo} width="75" height="75" className="d-inline-block align-center mr-2" alt="Velvet Ash Vintage Logo"/>
@@ -43,3 +43,5 @@ const Navigation = () => {
 }
 
 export default Navigation;
+
+{/* <Navbar></Navbar> */}
