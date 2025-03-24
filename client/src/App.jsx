@@ -3,6 +3,7 @@ import './App.css';
 import { Outlet } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Socials from './components/Socials';
 
 function App() {
     return (
@@ -13,6 +14,7 @@ function App() {
             <div className="">
                 <Outlet />
             </div>
+            <Socials />
             <Footer />
         </div>
     );
