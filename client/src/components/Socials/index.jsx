@@ -26,10 +26,10 @@ import { Link } from 'react-router-dom';
 const Socials = () => {
 
     return (
-        <Container>
-            <h3>Socials</h3>
-            <Container className="m-3 p-2" fluid>
-                <Row xxs={2} sm={4} className="m-0">
+        <Container className="pt-5 mt-5">
+            <p className="fs-3 fw-lighter">find me on...</p>
+            <Container className="m-3 p-2 align-middle" fluid>
+                <Row xxs={2} sm={4} className="m-0 align-middle">
                     <Col className="">
                         <Link to="https://www.etsy.com/shop/velvetashvintage" target="_blank">
                             <Image className="logo" src={etsyBlack} fluid />
@@ -37,17 +37,17 @@ const Socials = () => {
                     </Col>
                     <Col className="">
                         <Link to="https://www.depop.com/velvetashvintage/" target="_blank">
-                        <Image className="logo" src={depopSimple} fluid />
+                            <Image className="logo" src={depopSimple} fluid />
                         </Link>
                     </Col>
                     <Col className="">
                         <Link to="https://www.instagram.com/velvetashvintage/" target="_blank">
-                        <Image className="icon" src={instagramIconSimple} fluid />
+                            <Image className="icon" src={instagramIconSimple} fluid />
                         </Link>
                     </Col>
                     <Col className="">
                         <Link to="https://www.tiktok.com/@velvetashvintage" target="_blank">
-                        <Image className="icon" src={tiktokSimple} fluid />
+                            <Image className="icon" src={tiktokSimple} fluid />
                         </Link>
                     </Col>
                 </Row>
