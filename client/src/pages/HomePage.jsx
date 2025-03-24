@@ -52,7 +52,7 @@ const HomePage = () => {
             >
                 <Container className="mb-5">
                     {/* <Row xs={2} sm={3} md={4} lg={4}> */}
-                    <h3>Featured Items</h3>
+                    <p className="fs-3 fw-light">Featured Items</p>
                     <Row >
                         {featuredItems.length > 0 ? (
                             featuredItems.map((product, index) => (
@@ -74,9 +74,9 @@ const HomePage = () => {
                 {/* <Container className="ml-0 mr-0 pl-0 pr-0 mb-5"> */}
                 <PhotosOnly />
                 {/* </Container> */}
-                <Container className="mt-5">
+                {/* <Container className="mt-5">
                     <Socials></Socials>
-                </Container>
+                </Container> */}
             </ThemeProvider>
         </div >
     );
