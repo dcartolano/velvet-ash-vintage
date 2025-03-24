@@ -1,5 +1,7 @@
 import './index.css';
 
+import Image from 'react-bootstrap/Image';
+
 const FeaturedCard = (product) => {
 
     // console.log(product);
@@ -9,10 +11,10 @@ const FeaturedCard = (product) => {
         // <div className="card" style={{width: 18 + 'em'}}>
         <div className="card border-0">
             <a href={currentProduct.productUrl} target="_blank">
-                <img className="card-img-top" src={currentProduct.productImage} alt={currentProduct.productTitle} />
+                <Image className="card-img-top" src={currentProduct.productImage} alt={currentProduct.productTitle} rounded fluid/>
                 <div className="card-body">
-                    <h5 className="card-title">{currentProduct.productTitle}</h5>
-                    <p className="card-text">{currentProduct.productPrice}</p>
+                    <p className="card-title fs-6 fw-medium">{currentProduct.productTitle}</p>
+                    <p className="card-text fw-light">{currentProduct.productPrice}</p>
                     {/* <a href={currentProduct.productUrl} className="btn btn-primary">Go somewhere</a> */}
                 </div>
             </a>
