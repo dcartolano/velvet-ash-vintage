@@ -50,7 +50,7 @@ const HomePage = () => {
                 breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
                 minBreakpoint="xxs"
             >
-                <Container className="mb-5">
+                <Container className="mb-5" fluid>
                     {/* <Row xs={2} sm={3} md={4} lg={4}> */}
                     <p className="fs-3 fw-light">Featured Items</p>
                     <Row >
