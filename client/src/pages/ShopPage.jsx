@@ -1,15 +1,15 @@
-import etsyLogo from '../assets/etsy-logo.png';
-import instagramIcon from '../assets/instagram-icon-2.png';
-import instagramLogoBlue from '../assets/instagram-logo-blue.svg';
+// import etsyLogo from '../assets/etsy-logo.png';
+// import instagramIcon from '../assets/instagram-icon-2.png';
+// import instagramLogoBlue from '../assets/instagram-logo-blue.svg';
 // import instagramLogoBlack from '../assets/instagram-logo-black.png';
-import depopLogo from '../assets/depop-logo.svg';
-import tiktokLogo from '../assets/tiktok-logo.png';
-import linktreeLogo from '../assets/linktree-logo.png';
+// import depopLogo from '../assets/depop-logo.svg';
+// import tiktokLogo from '../assets/tiktok-logo.png';
+// import linktreeLogo from '../assets/linktree-logo.png';
 
 const ShopPage = () => {
     return (
         <div className="p-3">
-            <h3>Shop</h3>
+            {/* <h3>Shop</h3>
             <div className="p-3">
                 <a href="https://www.etsy.com/shop/velvetashvintage">
                     <img src={etsyLogo} height="50" alt="Etsy Logo" />
@@ -35,7 +35,7 @@ const ShopPage = () => {
                 <a href="https://www.tiktok.com/@velvetashvintage">
                     <img src={tiktokLogo} height="50" alt="TikTok Logo" />
                 </a>
-            </div>
+            </div> */}
         </div>
     );
 }
