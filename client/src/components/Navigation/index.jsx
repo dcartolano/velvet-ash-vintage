@@ -1,47 +1,41 @@
 import vavLogo from '../../assets/vav-logo.png';
-import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
+
+import './index.css';
+
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 
 const Navigation = () => {
     return (
         <div>
-            {/* <nav className="navbar navbar-expand navbar-light bg-light"> */}
-            <nav className="navbar navbar-light">
-                
-                {/* page title (brand) with logo and name */}
-                <a className="navbar-brand m-3 h1" href="/">
-                    <img src={vavLogo} width="75" height="75" className="d-inline-block align-center mr-2" alt="Velvet Ash Vintage Logo"/>
-                    Velvet Ash Vintage
-                </a>
-                {/* collapseable option for list of pages */}
-                {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <a className="nav-item nav-link" href="/">Home</a>
-                        <a className="nav-item nav-link" href="/about">About</a>
-                        <a className="nav-item nav-link" href="/gallery">Gallery</a>
-                        <a className="nav-item nav-link" href="/shop">Shop</a>
-                </div> */}
-                {/* dropdown option for list of pages */}
-                <div className="nav-item dropdown align-center">
-                    {/* option for 3 bar with dropdown arrow */}
-                    <a className="nav-link dropdown-toggle mr-2" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {/* option for 3 bar with collapse-style button */}
-                    {/* <a className="navbar-toggler" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> */}
-                    <span className="navbar-toggler-icon align-center"></span>
-                    </a>
-                    <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <a className="dropdown-item" href="/">Home</a>
-                        <a className="dropdown-item" href="/about">About</a>
-                        <a className="dropdown-item" href="/gallery">Gallery</a>
-                        <a className="dropdown-item" href="/shop">Shop</a>
-                    </div>
-                </div>
-            </nav>
+            <Navbar expand="md" data-bs-theme="light">
+                <Container>
+                    <Navbar.Brand href="/" className="fs-2 fw-light">
+                        <img
+                            alt="Velvet Ash Vintage Logo"
+                            src={vavLogo}
+                            width="75"
+                            height="75"
+                            className="d-inline-block align-center"
+                        />{' '}
+                        Velvet Ash Vintage
+                    </Navbar.Brand>
+                    <Navbar.Toggle className="border-0 navbar-custom" aria-controls="basic-navbar-nav" aria-label="Close" aria-expanded="false"/>
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="me-auto text-uppercase">
+                            <Nav.Link href="/">Home</Nav.Link>
+                            <Nav.Link href="/about">About</Nav.Link>
+                            <Nav.Link href="/gallery">Gallery</Nav.Link>
+                            {/* <Nav.Link href="/shop">Shop</Nav.Link> */}
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
         </div>
     );
 }
 
 export default Navigation;
 
-{/* <Navbar></Navbar> */}
+{/* <Navbar></Navbar> */ }
