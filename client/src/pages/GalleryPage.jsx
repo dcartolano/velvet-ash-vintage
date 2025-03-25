@@ -6,10 +6,11 @@ const GalleryPage = () => {
 
     return (
         <div className="p-3">
-            <h3>Gallery</h3>
-            <div className="p-3">
-            <div className="p-3" dangerouslySetInnerHTML={ {__html: decodedBody} }></div>
-            </div>
+            <p className="fs-3 fw-light">Gallery</p>
+            <p>Under construction - coming soon!</p>
+            {/* <div className="p-3">
+                <div className="p-3" dangerouslySetInnerHTML={{ __html: decodedBody }}></div>
+            </div> */}
         </div>
     );
 }
