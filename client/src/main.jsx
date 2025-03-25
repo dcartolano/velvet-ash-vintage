@@ -8,7 +8,7 @@ import HomePage from './pages/HomePage';
 import ErrorPage from './pages/ErrorPage';
 import AboutPage from './pages/AboutPage';
 import GalleryPage from './pages/GalleryPage';
-import ShopPage from './pages/ShopPage';
+// import ShopPage from './pages/ShopPage';
 
 
 const router = createBrowserRouter([
@@ -29,10 +29,10 @@ const router = createBrowserRouter([
                 path: '/gallery',
                 element: <GalleryPage />,
             },
-            {
-                path: '/shop',
-                element: <ShopPage />,
-            },
+            // {
+            //     path: '/shop',
+            //     element: <ShopPage />,
+            // },
         ],
     },
 ]);
