@@ -1,27 +1,19 @@
 import './index.css';
 
-import etsyLogo from '../../assets/etsy-logo.png';
 import etsyBlack from '../../assets/etsy-black.png';
-import instagramIcon from '../../assets/instagram-icon-2.png';
-import instagramLogoBlue from '../../assets/instagram-logo-blue.svg';
-// import instagramLogoBlack from '../../assets/instagram-logo-black.png';
 import instagramIconSimple from '../../assets/instagram-icon-simple.png';
-import depopLogo from '../../assets/depop-logo.svg';
 import depopSimple from '../../assets/depop-full-simple.png';
-import tiktokLogo from '../../assets/tiktok-logo.png';
 import tiktokSimple from '../../assets/tiktok-simple.png';
-import linktreeLogo from '../../assets/linktree-logo.png';
 
 import Image from 'react-bootstrap/Image';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import ThemeProvider from 'react-bootstrap/ThemeProvider'
-import Card from 'react-bootstrap/Card';
-import CardGroup from 'react-bootstrap/CardGroup';
-// import { Stack } from 'react-bootstrap';
-import Stack from 'react-bootstrap/Stack';
 import { Link } from 'react-router-dom';
+// import ThemeProvider from 'react-bootstrap/ThemeProvider'
+// import Card from 'react-bootstrap/Card';
+// import CardGroup from 'react-bootstrap/CardGroup';
+// import Stack from 'react-bootstrap/Stack';
 
 const Socials = () => {
 
