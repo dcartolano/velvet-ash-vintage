@@ -1,7 +1,7 @@
 import FeaturedCard from '../components/FeaturedCard';
-import PhotoAndSlogan from '../components/PhotoAndSlogan';
+// import PhotoAndSlogan from '../components/PhotoAndSlogan';
 import PhotosOnly from '../components/PhotosOnly';
-import Socials from '../components/Socials';
+// import Socials from '../components/Socials';
 
 import curvedWoodenBox from '../assets/curved-wooden-box.jpg';
 import pinkGrayMarbleChessBoard from '../assets/pink-gray-marble-chess-board.jpg';
