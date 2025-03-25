@@ -11,7 +11,6 @@ import iittalaGlassTriangularCandleholders from '../assets/iittala-glass-triangu
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import ThemeProvider from 'react-bootstrap/ThemeProvider'
 
 const HomePage = () => {
 
@@ -45,39 +44,29 @@ const HomePage = () => {
 
     return (
         <div className="">
-            {/* <h3>Home</h3> */}
-            <ThemeProvider
-                breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
-                minBreakpoint="xxs"
-            >
-                <Container className="mb-5" fluid>
-                    {/* <Row xs={2} sm={3} md={4} lg={4}> */}
-                    <p className="fs-3 fw-light">Featured Items</p>
-                    <Row >
-                        {featuredItems.length > 0 ? (
-                            featuredItems.map((product, index) => (
-                                <Col xxs={6} md={4} lg={3} key={index}>
-                                    <FeaturedCard
-                                        product={product}
-                                    />
-                                </Col>
+            <Container className="mb-5" fluid>
+                {/* <Row xs={2} sm={3} md={4} lg={4}> */}
+                <p className="fs-3 fw-light">Featured Items</p>
+                <Row >
+                    {featuredItems.length > 0 ? (
+                        featuredItems.map((product, index) => (
+                            <Col xxs={6} md={4} lg={3} key={index}>
+                                <FeaturedCard
+                                    product={product}
+                                />
+                            </Col>
 
-                            ))
-                        ) : (
-                            <div>
-                                <p>please add a featured item!</p>
-                            </div>
-                        )}
-                    </Row>
-                </Container>
-                {/* <PhotoAndSlogan/> */}
-                {/* <Container className="ml-0 mr-0 pl-0 pr-0 mb-5"> */}
-                <PhotosOnly />
-                {/* </Container> */}
-                {/* <Container className="mt-5">
-                    <Socials></Socials>
-                </Container> */}
-            </ThemeProvider>
+                        ))
+                    ) : (
+                        <div>
+                            <p>please add a featured item!</p>
+                        </div>
+                    )}
+                </Row>
+            </Container>
+            {/* <PhotoAndSlogan/> */}
+            <PhotosOnly />
+            {/* <Socials/> */}
         </div >
     );
 }
