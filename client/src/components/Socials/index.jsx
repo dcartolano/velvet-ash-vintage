@@ -1,6 +1,5 @@
 import './index.css';
 
-
 import etsySimple from '../../assets/etsy-e-circle-larger-margin.png';
 // import etsySimple from '../../assets/etsy-e-circle-small-margin.svg';
 // import etsySimple from '../../assets/etsy-e-filled-in.png';
@@ -17,9 +16,9 @@ import { Link } from 'react-router-dom';
 const Socials = () => {
 
     return (
-        <Container className="pt-5 mt-5">
+        <Container className="pt-5 pb-5">
             <p className="fs-3 fw-lighter">find me on...</p>
-            <Container className="m-3 p-2 d-inline-block align-center" fluid>
+            <Container className="d-inline-block align-center" fluid>
                 <Row xxs={2} sm={4} className="m-0 align-middle">
                     <Col className="">
                         <Link to="https://www.etsy.com/shop/velvetashvintage" target="_blank">
@@ -42,7 +41,6 @@ const Socials = () => {
                         </Link>
                     </Col>
                 </Row>
-
             </Container>
         </Container>
     );
