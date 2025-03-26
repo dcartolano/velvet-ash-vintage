@@ -1,9 +1,27 @@
-.about-image {
-    /* width: auto; */
-    height: 100%;
-    object-fit: cover;
+.about-title {
+    position: relative;
+    top: 35px;
 }
 
-.image-row {
-    height: 100%;
+@media (width < 768px) {
+    .about-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        overflow: hidden;
+    }
+    .image-column {
+        height: 360px;
+    }
+}
+
+@media (width >= 768px) {
+    .about-image {
+        height: 100%;
+        object-fit: cover;
+        max-height: 930px;
+    }
+    .about-bio {
+        margin-top: 1em;
+    }
 }
