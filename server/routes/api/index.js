@@ -1,30 +1,50 @@
 import express from 'express';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 const router = express.Router();
 
-// // method for if another file is utilized (see 18-Challenge)
-// import userRoutes from './user-routes.js';
+const tumblrConsumerKey = process.env.TUMBLR_CONSUMER_KEY;
 
-// router.use('/users', userRoutes);
+router.route('/getGalleryPosts').get(async (_req, res) => {
 
-// // method if no add'l file is used
-// import {
-//     createUser,
-//     getSingleUser,
-//     saveBook,
-//     deleteBook,
-//     login,
-//   } from '../../controllers/user-controller.js';
-  
-//   // import middleware
-//   import { authenticateToken } from '../../services/auth.js';
-  
-//   // put authMiddleware anywhere we need to send a token for verification of user
-//   router.route('/').post(createUser).put(authenticateToken, saveBook);
-  
-//   router.route('/login').post(login);
-  
-//   router.route('/me').get(authenticateToken, getSingleUser);
-  
-//   router.route('/books/:bookId').delete(authenticateToken, deleteBook);
+    try {
+        const tumblrResponse = await fetch(`http://api.tumblr.com/v2/blog/caffeinatedaze.tumblr.com/posts?api_key=${tumblrConsumerKey}&limit=5`);
+
+        if (!tumblrResponse.ok) {
+            const errorBody = await response.text(); // Get the response as text
+            console.error('Error communicating with Tumblr:', errorBody);
+            return res.send('Error fetching gallery info: ' + errorBody);
+        }
+
+        const rawTumblrPosts = await tumblrResponse.json();
+        // console.log('Tumblr Response:', rawTumblrPosts); // Log the posts response for debugging
+
+        const tumblrPostsArray = rawTumblrPosts.response.posts;
+        // console.log('tumblrPostsArray: ', tumblrPostsArray);
+        // console.log('tumblrPostsArray[0]: ', tumblrPostsArray[0]);
+        // console.log('tumblrPostsArray[0].parent_post_url: ', tumblrPostsArray[0].parent_post_url);
+        // console.log('tumblrPostsArray[0].trail: ', tumblrPostsArray[0].trail);
+        // console.log('tumblrPostsArray[0].trail[0].post: ', tumblrPostsArray[0].trail[0].post);
+        // console.log('tumblrPostsArray[0].trail[0].content: ', tumblrPostsArray[0].trail[0].content);
+
+        const galleryDataArray = await Promise.all(tumblrPostsArray.map(async (post) => {
+            return {
+                parentPostUrl: post.parent_post_url,
+                postId: post.trail[0].post.id,
+                postContent: post.trail[0].content
+            }
+        }));
+
+        // console.log('galleryDataArray: ', galleryDataArray);
+
+        res.json(galleryDataArray);
+
+    } catch (error) {
+        console.error('Error fetching gallery posts:', error);
+        res.json('Error fetching gallery content');
+    }
+});
 
 export default router;
