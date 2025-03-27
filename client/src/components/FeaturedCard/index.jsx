@@ -11,9 +11,9 @@ const FeaturedCard = (product) => {
             <Card className="border-0" text="dark" >
                 <Card.Body>
                     <Card.Img className="rounded-0" variant="top" src={currentProduct.productImage} alt={currentProduct.productTitle} />
-                    <Card.Body>
-                        <Card.Title className="fs-6">{currentProduct.productTitle}</Card.Title>
-                        <Card.Text className="fw-light">{currentProduct.productPrice}</Card.Text>
+                    <Card.Body className="p-0 mt-2 item-info">
+                        <Card.Title className="item-info m-0">{currentProduct.productTitle}</Card.Title>
+                        <Card.Text className="item-price">{currentProduct.productPrice}</Card.Text>
                     </Card.Body>
                 </Card.Body>
             </Card>
