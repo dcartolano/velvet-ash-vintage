@@ -29,10 +29,20 @@ router.route('/getGalleryPosts').get(async (_req, res) => {
         // console.log('tumblrPostsArray[0].trail[0].post: ', tumblrPostsArray[0].trail[0].post);
         // console.log('tumblrPostsArray[0].trail[0].content: ', tumblrPostsArray[0].trail[0].content);
 
+        // console.log('tumblrPostsArray[1]: ', tumblrPostsArray[1]);
+        // console.log('tumblrPostsArray[0].parent_post_url: ', tumblrPostsArray[0].parent_post_url);
+        // console.log('tumblrPostsArray[1].trail: ', tumblrPostsArray[1].trail);
+        // console.log('tumblrPostsArray[1].trail[0].content: ', tumblrPostsArray[1].trail[0].content);
+
         const galleryDataArray = await Promise.all(tumblrPostsArray.map(async (post) => {
             return {
-                parentPostUrl: post.parent_post_url,
-                postId: post.trail[0].post.id,
+                
+                // postId: post.id,
+                postUrl: post.post_url,
+                postSummary: post.summary,
+                parentPoster: post.trail[0].blog.name,
+                // parentPostUrl: post.parent_post_url,
+                // parentPostId: post.trail[0].post.id,
                 postContent: post.trail[0].content
             }
         }));
