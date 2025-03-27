@@ -13,3 +13,12 @@ a:hover {
 a:active {
     text-decoration: none;
 } */
+
+.item-info {
+    font-size: 13px;
+}
+
+.item-price {
+    /* color: #5a482c; */
+    color: #e35226;
+}
