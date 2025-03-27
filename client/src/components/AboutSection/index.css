@@ -1,6 +1,7 @@
 .about-title {
     position: relative;
     top: 35px;
+    /* color: #5a482c; */
 }
 
 @media (width < 768px) {
