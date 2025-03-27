@@ -43,13 +43,13 @@ const HomePage = () => {
 
     return (
         <div className="">
-            <Container className="mb-0" fluid>
+            <Container className="mb-5" fluid>
                 <p className="fs-3 fw-light">Featured Items</p>
                 <Row xs={2} sm={3} md={3} lg={4}>
                 {/* <Row> */}
                     {featuredItems.length > 0 ? (
                         featuredItems.map((product, index) => (
-                            <Col xs={6} md={4} lg={3}>
+                            <Col xs={6} md={4} lg={3} className="p-0">
                                 {/* <Col> */}
                                 <FeaturedCard
                                     product={product}
@@ -64,6 +64,7 @@ const HomePage = () => {
                     )}
                 </Row>
             </Container>
+            {/* <hr className="p-2 align-center" style={{ width: '98%'}}/> */}
             {/* <PhotoAndSlogan/> */}
             <PhotosOnly />
             {/* <Socials/> */}
