@@ -17,7 +17,7 @@ const GalleryPage = () => {
                 throw new Error('Network response was not ok');
             }
             const data = await response.json();
-            console.log(data);
+            // console.log(data);
 
             setGalleryData(data);
 
@@ -33,9 +33,9 @@ const GalleryPage = () => {
 
     return (
         <div className="">
-            <Container className="" fluid>
+            <Container className="">
                 <p className="">Gallery</p>
-                <Row xs={1} sm={3} md={1} lg={1}>
+                <Row xs={1} sm={1} md={1} lg={1}>
                     {galleryData.length > 0 ? (
                         galleryData.map((post, index) => (
                             <Col xs={12} md={12} lg={12} className="">
