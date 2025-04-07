@@ -8,18 +8,21 @@ const router = express.Router();
 const tumblrConsumerKey = process.env.TUMBLR_CONSUMER_KEY;
 const etsyKeystring = process.env.ETSY_KEYSTRING;
 
-const tumblrPostLimit = '10';
+const tumblrPostLimit = '10'; // str
+// let etsyListingId = 0; // num
+// let listingImagesArray = []; // array
 
-const tumblrUrl = `http://api.tumblr.com/v2/blog/caffeinatedaze.tumblr.com/posts?api_key=${tumblrConsumerKey}&limit=${tumblrPostLimit}`;
-const etsyUrl = `https://openapi.etsy.com/v3/application/shops/37691936/listings/featured`;
+const tumblrPostsUrl = `http://api.tumblr.com/v2/blog/caffeinatedaze.tumblr.com/posts?api_key=${tumblrConsumerKey}&limit=${tumblrPostLimit}`;
+const etsyFeaturedListingsUrl = `https://openapi.etsy.com/v3/application/shops/37691936/listings/featured`;
+// const etsyListingImagesUrl = `https://openapi.etsy.com/v3/application/listings/${etsyListingId}/images`;
 
 router.route('/getGalleryPosts').get(async (_req, res) => {
 
     try {
-        const tumblrResponse = await fetch(tumblrUrl);
+        const tumblrResponse = await fetch(tumblrPostsUrl);
 
         if (!tumblrResponse.ok) {
-            const errorBody = await response.text(); // Get the response as text
+            const errorBody = await tumblrResponse.text(); // Get the response as text
             console.error('Error communicating with Tumblr:', errorBody);
             return res.send('Error fetching gallery info: ' + errorBody);
         }
@@ -70,33 +73,72 @@ router.route('/getGalleryPosts').get(async (_req, res) => {
 router.route('/getFeaturedItems').get(async (_req, res) => {
 
     try {
-        const etsyResponse = await fetch(etsyUrl, {
+        const etsyListingsResponse = await fetch(etsyFeaturedListingsUrl, {
             method: 'GET',
             headers: {
                 'x-api-key': etsyKeystring,
             },
         });
 
-        if (!etsyResponse.ok) {
-            const errorBody = await response.text(); // Get the response as text
+        if (!etsyListingsResponse.ok) {
+            const errorBody = await etsyListingsResponse.text(); // Get the response as text
             console.error('Error communicating with Etsy:', errorBody);
             return res.send('Error fetching shop info: ' + errorBody);
         }
 
-        const rawEtsyListings = await etsyResponse.json();
-        // console.log('Etsy Response:', rawEtsyListings); // Log the featured listings response for debugging
+        const rawEtsyListings = await etsyListingsResponse.json();
+        // console.log('Etsy Listings Response:', rawEtsyListings); // Log the featured listings response for debugging
 
         const etsyFeaturedListingsArray = rawEtsyListings.results;
 
         const shopDataArray = await Promise.all(etsyFeaturedListingsArray.map(async (listing) => {
+
+            // const etsyListingId = listing.listing_id; // num
+
+
+            const etsyImagesResponse = await fetch(`https://openapi.etsy.com/v3/application/listings/${listing.listing_id}/images`, {
+                method: 'GET',
+                mode: 'cors',
+                headers: {
+                    'x-api-key': etsyKeystring,
+                },
+            });
+
+            if (!etsyImagesResponse.ok) {
+                const errorBody = await etsyImagesResponse.text(); // Get the response as text
+                console.error('Error communicating with Etsy:', errorBody);
+                return res.send('Error fetching shop info: ' + errorBody);
+            }
+
+            const rawEtsyImages = await etsyImagesResponse.json();
+            // console.log('Etsy Images Response:', rawEtsyImages); // Log the featured listings response for debugging
+
+            const etsyImagesArray = rawEtsyImages.results;
+
+            const listingImagesArray = await Promise.all(etsyImagesArray.map(async (image) => {
+                // return {
+                //     // listingId: listing.listing_id, // num (may not be needed)
+                //     listingTitle: listing.title, // str
+                //     // listingState: listing.state, // str (may not be needed)
+                //     listingUrl: listing.url, //str
+                //     // listingTags: listing.tags, // [str] (array of str) (may not be needed)
+                //     listingPrice: (listing.price.amount / listing.price.divisor) // num (divides price amount by price divisor)
+                // }
+                // console.log(image.url_570xN);
+                return image.url_570xN;
+            }));
+
+            console.log(listingImagesArray);
+
             return {
 
+                listingImages: listingImagesArray,
                 // listingId: listing.listing_id, // num (may not be needed)
                 listingTitle: listing.title, // str
                 // listingState: listing.state, // str (may not be needed)
                 listingUrl: listing.url, //str
                 // listingTags: listing.tags, // [str] (array of str) (may not be needed)
-                listingPrice: ( listing.price.amount / listing.price.divisor ) // num (divides price amount by price divisor)
+                listingPrice: (listing.price.amount / listing.price.divisor).toFixed(2) // num (divides price amount by price divisor)
             }
         }));
 
