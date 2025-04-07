@@ -4,6 +4,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
 import routes from './routes/index.js'
+// import cors from 'cors';
 
 const __dirname = import.meta.dirname;
 
@@ -13,6 +14,17 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+
+// app.use(cors());
+
+// var corsOptions = {
+//   origin: 'http://example.com',
+//   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+// }
+
+// app.options('*', cors())
+
 
 // app.get('/api', (req, res) => {
 //   res.send('Hello from the Node.js backend api!');
