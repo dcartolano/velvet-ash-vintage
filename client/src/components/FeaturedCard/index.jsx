@@ -8,13 +8,13 @@ const FeaturedCard = (product) => {
 
     const proxy = 'https://corsproxy.io/?url=';
     const imageUrl = currentProduct.listingImages[0];
-    const proxiedUrl = proxy + imageUrl;
+    const proxiedImageUrl = proxy + imageUrl;
 
     return (
         <Card.Link href={currentProduct.listingUrl} className="text-decoration-none text-start" target="_blank">
             <Card className="border-0" text="dark" >
                 <Card.Body>
-                    <Card.Img className="rounded-0" variant="top" src={proxiedUrl} alt={currentProduct.listingTitle} />
+                    <Card.Img className="rounded-0" variant="top" src={proxiedImageUrl} alt={currentProduct.listingTitle} />
                     <Card.Body className="p-0 mt-2 item-info">
                         <Card.Title className="item-info m-0">{currentProduct.listingTitle}</Card.Title>
                         <Card.Text className="item-price">{`$${currentProduct.listingPrice}`}</Card.Text>
