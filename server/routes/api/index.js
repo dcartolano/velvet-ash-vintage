@@ -6,11 +6,14 @@ dotenv.config();
 const router = express.Router();
 
 const tumblrConsumerKey = process.env.TUMBLR_CONSUMER_KEY;
+const etsyKeystring = process.env.ETSY_KEYSTRING;
+
+const tumblrPostLimit = 10;
 
 router.route('/getGalleryPosts').get(async (_req, res) => {
 
     try {
-        const tumblrResponse = await fetch(`http://api.tumblr.com/v2/blog/caffeinatedaze.tumblr.com/posts?api_key=${tumblrConsumerKey}&limit=10`);
+        const tumblrResponse = await fetch(`http://api.tumblr.com/v2/blog/caffeinatedaze.tumblr.com/posts?api_key=${tumblrConsumerKey}&limit=${tumblrPostLimit}`);
 
         if (!tumblrResponse.ok) {
             const errorBody = await response.text(); // Get the response as text
@@ -40,7 +43,7 @@ router.route('/getGalleryPosts').get(async (_req, res) => {
 
         const galleryDataArray = await Promise.all(tumblrPostsArray.map(async (post) => {
             return {
-                
+
                 // postId: post.id,
                 postUrl: post.post_url,
                 postSummary: post.summary,
@@ -58,6 +61,47 @@ router.route('/getGalleryPosts').get(async (_req, res) => {
     } catch (error) {
         console.error('Error fetching gallery posts:', error);
         res.json('Error fetching gallery content');
+    }
+});
+
+router.route('/getFeaturedItems').get(async (_req, res) => {
+
+    try {
+        const etsyResponse = await fetch(`https://openapi.etsy.com/v3/application/shops/37691936/listings/featured`, {
+            method: 'GET',
+            headers: {
+                'x-api-key': etsyKeystring,
+            },
+        });
+
+        if (!etsyResponse.ok) {
+            const errorBody = await response.text(); // Get the response as text
+            console.error('Error communicating with Etsy:', errorBody);
+            return res.send('Error fetching shop info: ' + errorBody);
+        }
+
+        const rawEtsyListings = await etsyResponse.json();
+        console.log('Etsy Response:', rawEtsyListings); // Log the featured listings response for debugging
+
+        // const etsyFeaturedListingsArray = rawEtsyListings.response.posts;
+
+        // const shopDataArray = await Promise.all(etsyFeaturedListingsArray.map(async (post) => {
+        //     return {
+
+        //         postUrl: post.post_url,
+        //         postSummary: post.summary,
+        //         parentPoster: post.trail[0].blog.name,
+        //         postContent: post.trail[0].content
+        //     }
+        // }));
+
+        // // console.log('shopDataArray: ', shopDataArray);
+
+        // res.json(shopDataArray);
+
+    } catch (error) {
+        console.error('Error fetching featured listings:', error);
+        res.json('Error fetching shop content');
     }
 });
 
