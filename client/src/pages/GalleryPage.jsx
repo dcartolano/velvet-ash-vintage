@@ -34,7 +34,7 @@ const GalleryPage = () => {
     return (
         <div className="">
             <Container className="">
-                <p className="">Gallery</p>
+                {/* <p className="">Gallery</p> */}
                 <Row xs={1} sm={1} md={1} lg={1}>
                     {galleryData.length > 0 ? (
                         galleryData.map((post, index) => (
