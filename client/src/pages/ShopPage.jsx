@@ -17,7 +17,7 @@ const [shopData, setShopData] = useState([]);
                 throw new Error('Network response was not ok');
             }
             const data = await response.json();
-            console.log(data);
+            // console.log(data);
 
             setShopData(data);
 
