@@ -38,10 +38,9 @@ const GalleryPage = () => {
                 <Row xs={1} sm={1} md={1} lg={1}>
                     {galleryData.length > 0 ? (
                         galleryData.map((post, index) => (
-                            <Col xs={12} md={12} lg={12} className="">
+                            <Col xs={12} md={12} lg={12} className="" key={index}>
                                 <GalleryCard
                                     post={post}
-                                    key={index}
                                 />
                             </Col>
                         ))
