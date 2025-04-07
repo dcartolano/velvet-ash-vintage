@@ -47,13 +47,13 @@ router.route('/getGalleryPosts').get(async (_req, res) => {
         const galleryDataArray = await Promise.all(tumblrPostsArray.map(async (post) => {
             return {
 
-                // postId: post.id,
-                postUrl: post.post_url,
-                postSummary: post.summary,
-                parentPoster: post.trail[0].blog.name,
-                // parentPostUrl: post.parent_post_url,
-                // parentPostId: post.trail[0].post.id,
-                postContent: post.trail[0].content
+                // postId: post.id, // num (may not be needed)
+                postUrl: post.post_url, // str
+                postSummary: post.summary, // str
+                parentPoster: post.trail[0].blog.name, // str
+                // parentPostUrl: post.parent_post_url, // str (may not be needed)
+                // parentPostId: post.trail[0].post.id, // str (may not be needed)
+                postContent: post.trail[0].content // str
             }
         }));
 
@@ -84,23 +84,25 @@ router.route('/getFeaturedItems').get(async (_req, res) => {
         }
 
         const rawEtsyListings = await etsyResponse.json();
-        console.log('Etsy Response:', rawEtsyListings); // Log the featured listings response for debugging
+        // console.log('Etsy Response:', rawEtsyListings); // Log the featured listings response for debugging
 
-        // const etsyFeaturedListingsArray = rawEtsyListings.response.posts;
+        const etsyFeaturedListingsArray = rawEtsyListings.results;
 
-        // const shopDataArray = await Promise.all(etsyFeaturedListingsArray.map(async (post) => {
-        //     return {
+        const shopDataArray = await Promise.all(etsyFeaturedListingsArray.map(async (listing) => {
+            return {
 
-        //         postUrl: post.post_url,
-        //         postSummary: post.summary,
-        //         parentPoster: post.trail[0].blog.name,
-        //         postContent: post.trail[0].content
-        //     }
-        // }));
+                // listingId: listing.listing_id, // num (may not be needed)
+                listingTitle: listing.title, // str
+                // listingState: listing.state, // str (may not be needed)
+                listingUrl: listing.url, //str
+                // listingTags: listing.tags, // [str] (array of str) (may not be needed)
+                listingPrice: ( listing.price.amount / listing.price.divisor ) // num (divides price amount by price divisor)
+            }
+        }));
 
-        // // console.log('shopDataArray: ', shopDataArray);
+        // console.log('shopDataArray: ', shopDataArray);
 
-        // res.json(shopDataArray);
+        res.json(shopDataArray);
 
     } catch (error) {
         console.error('Error fetching featured listings:', error);
