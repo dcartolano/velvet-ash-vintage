@@ -10,7 +10,7 @@ const tumblrConsumerKey = process.env.TUMBLR_CONSUMER_KEY;
 router.route('/getGalleryPosts').get(async (_req, res) => {
 
     try {
-        const tumblrResponse = await fetch(`http://api.tumblr.com/v2/blog/caffeinatedaze.tumblr.com/posts?api_key=${tumblrConsumerKey}&limit=5`);
+        const tumblrResponse = await fetch(`http://api.tumblr.com/v2/blog/caffeinatedaze.tumblr.com/posts?api_key=${tumblrConsumerKey}&limit=10`);
 
         if (!tumblrResponse.ok) {
             const errorBody = await response.text(); // Get the response as text
@@ -30,9 +30,13 @@ router.route('/getGalleryPosts').get(async (_req, res) => {
         // console.log('tumblrPostsArray[0].trail[0].content: ', tumblrPostsArray[0].trail[0].content);
 
         // console.log('tumblrPostsArray[1]: ', tumblrPostsArray[1]);
-        // console.log('tumblrPostsArray[0].parent_post_url: ', tumblrPostsArray[0].parent_post_url);
         // console.log('tumblrPostsArray[1].trail: ', tumblrPostsArray[1].trail);
         // console.log('tumblrPostsArray[1].trail[0].content: ', tumblrPostsArray[1].trail[0].content);
+
+        // console.log('tumblrPostsArray[9]: ', tumblrPostsArray[9]);
+        // console.log('tumblrPostsArray[9].trail: ', tumblrPostsArray[9].trail);
+        // console.log('tumblrPostsArray[9].trail[0].content: ', tumblrPostsArray[9].trail[0].content);
+        // image permalink ????
 
         const galleryDataArray = await Promise.all(tumblrPostsArray.map(async (post) => {
             return {
