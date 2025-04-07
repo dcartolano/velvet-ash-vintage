@@ -8,12 +8,15 @@ const router = express.Router();
 const tumblrConsumerKey = process.env.TUMBLR_CONSUMER_KEY;
 const etsyKeystring = process.env.ETSY_KEYSTRING;
 
-const tumblrPostLimit = 10;
+const tumblrPostLimit = '10';
+
+const tumblrUrl = `http://api.tumblr.com/v2/blog/caffeinatedaze.tumblr.com/posts?api_key=${tumblrConsumerKey}&limit=${tumblrPostLimit}`;
+const etsyUrl = `https://openapi.etsy.com/v3/application/shops/37691936/listings/featured`;
 
 router.route('/getGalleryPosts').get(async (_req, res) => {
 
     try {
-        const tumblrResponse = await fetch(`http://api.tumblr.com/v2/blog/caffeinatedaze.tumblr.com/posts?api_key=${tumblrConsumerKey}&limit=${tumblrPostLimit}`);
+        const tumblrResponse = await fetch(tumblrUrl);
 
         if (!tumblrResponse.ok) {
             const errorBody = await response.text(); // Get the response as text
@@ -67,7 +70,7 @@ router.route('/getGalleryPosts').get(async (_req, res) => {
 router.route('/getFeaturedItems').get(async (_req, res) => {
 
     try {
-        const etsyResponse = await fetch(`https://openapi.etsy.com/v3/application/shops/37691936/listings/featured`, {
+        const etsyResponse = await fetch(etsyUrl, {
             method: 'GET',
             headers: {
                 'x-api-key': etsyKeystring,
