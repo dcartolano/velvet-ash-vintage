@@ -39,11 +39,10 @@ const [shopData, setShopData] = useState([]);
                     {/* <Row> */}
                     {shopData.length > 0 ? (
                         shopData.map((product, index) => (
-                            <Col xs={6} md={4} lg={3} className="p-0">
+                            <Col xs={6} md={4} lg={3} className="p-0" key={index}>
                                 {/* <Col> */}
                                 <FeaturedCard
                                     product={product}
-                                    key={index}
                                 />
                             </Col>
                         ))
