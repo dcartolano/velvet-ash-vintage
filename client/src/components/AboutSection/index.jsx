@@ -9,7 +9,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const AboutSection = () => {
-    let breakpoint;
+    // let breakpoint;
 
     return (
         <Container fluid>
