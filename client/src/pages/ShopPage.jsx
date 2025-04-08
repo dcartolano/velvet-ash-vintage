@@ -34,7 +34,7 @@ const [shopData, setShopData] = useState([]);
 
     return (
         <div className="">
-            <Container className="mb-5" fluid>
+            <Container className="mb-5 p-5" fluid>
                 <p className="fs-3 fw-light">Recently Listed Items</p>
                 <Row xs={2} sm={3} md={3} lg={4}>
                     {/* <Row> */}
