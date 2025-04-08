@@ -18,7 +18,8 @@
     object-position: 50% 70%;
     aspect-ratio: 7/8;
     display: block;
-    transition: all 0.5s ease-in;
+    /* transition: all 0.5s ease-in; */
+    /* transition: opacity .3s; */
 }
 
 .alt-image {
@@ -34,7 +35,6 @@
  
 .image-container:hover .alt-image { 
     display: block;
-    /* transition: opacity .3s ease-in; */
 } 
 
 /* .ProductList-image {
