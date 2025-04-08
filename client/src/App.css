@@ -40,3 +40,10 @@
 /* .read-the-docs {
   color: #888;
 } */
+
+.spinner {
+  display: block;
+  position: fixed;
+  top: 40%;
+  left: 49%;
+}
