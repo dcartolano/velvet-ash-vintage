@@ -35,10 +35,10 @@ const GalleryPage = () => {
         <div className="">
             <Container className="">
                 {/* <p className="">Gallery</p> */}
-                <Row xs={1} sm={1} md={1} lg={1}>
+                <Row xs={2} md={3} lg={3}>
                     {galleryData.length > 0 ? (
                         galleryData.map((post, index) => (
-                            <Col xs={12} md={12} lg={12} className="" key={index}>
+                            <Col xs={6} md={4} lg={4} className="p-3" key={index}>
                                 <GalleryCard
                                     post={post}
                                 />
@@ -46,7 +46,7 @@ const GalleryPage = () => {
                         ))
                     ) : (
                         <div>
-                            <p>nothing to show!</p>
+                            {/* <p>nothing to show!</p> */}
                         </div>
                     )}
                 </Row>
