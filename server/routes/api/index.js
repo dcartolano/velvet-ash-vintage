@@ -187,7 +187,7 @@ router.route('/getActiveItems').get(async (_req, res) => {
                 return image.url_570xN;
             }));
 
-            console.log(listingImagesArray);
+            // console.log(listingImagesArray);
 
             return {
 
