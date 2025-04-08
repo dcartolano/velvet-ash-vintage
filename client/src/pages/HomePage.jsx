@@ -13,10 +13,11 @@ import PhotosOnly from '../components/PhotosOnly';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Spinner from 'react-bootstrap/Spinner';
 
 const HomePage = () => {
 
-    const[shopData, setShopData] = useState([]);
+    const [shopData, setShopData] = useState([]);
 
     const fetchShopData = async () => {
         try {
@@ -69,7 +70,7 @@ const HomePage = () => {
 
     return (
         <div className="">
-            <Container className="mb-5" fluid>
+            <Container className="mb-5 p-5" fluid>
                 <p className="fs-3 fw-light">Featured Items</p>
                 <Row xs={2} sm={3} md={3} lg={4}>
                     {/* <Row> */}
@@ -83,9 +84,9 @@ const HomePage = () => {
                             </Col>
                         ))
                     ) : (
-                        <div>
-                            {/* <p>please add a featured item!</p> */}
-                        </div>
+                            <Spinner className="spinner" animation="grow" variant="success" size="sm" role="status">
+                                <span className="visually-hidden">Loading...</span>
+                            </Spinner>
                     )}
                 </Row>
             </Container>

@@ -5,6 +5,7 @@ import GalleryCard from '../components/GalleryCard';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Spinner from 'react-bootstrap/Spinner';
 
 const GalleryPage = () => {
 
@@ -33,7 +34,7 @@ const GalleryPage = () => {
 
     return (
         <div className="">
-            <Container className="" fluid>
+            <Container className="p-5" fluid>
                 {/* <p className="">Gallery</p> */}
                 <Row xs={2} md={3} lg={3}>
                     {galleryData.length > 0 ? (
@@ -46,7 +47,9 @@ const GalleryPage = () => {
                         ))
                     ) : (
                         <div>
-                            {/* <p>nothing to show!</p> */}
+                            <Spinner className="spinner" animation="grow" variant="success" size="sm" role="status">
+                                <span className="visually-hidden">Loading...</span>
+                            </Spinner>
                         </div>
                     )}
                 </Row>
