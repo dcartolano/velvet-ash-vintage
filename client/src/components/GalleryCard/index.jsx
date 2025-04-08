@@ -47,7 +47,7 @@ const GalleryCard = (post) => {
                 <Container text="dark">
                     <Link to={postUrl} className="text-decoration-none" target="_blank">
                         <Image src={decodedPostContentSplitReplacedSliced} fluid/>
-                        <p>{postSummary} via {parentPoster} on Tumblr</p>
+                        {/* <p>{postSummary} via {parentPoster} on Tumblr</p> */}
                     </Link>
                 </Container>
             )}
