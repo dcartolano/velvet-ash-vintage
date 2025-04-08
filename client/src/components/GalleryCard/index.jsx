@@ -32,7 +32,7 @@ const GalleryCard = (post) => {
     const decodedPostContentSplitReplacedSliced = decodedPostContentSplitReplaced.slice(1, -1);
     // console.log(decodedPostContentSplitReplacedSliced);
 
-    const videoBoolean = /video/.test(decodedPostContentSplitReplacedSliced);
+    // const videoBoolean = /video/.test(decodedPostContentSplitReplacedSliced);
     // console.log(videoBoolean);
 
 
@@ -41,16 +41,16 @@ const GalleryCard = (post) => {
             {/* <div className="">
                 <div className="" dangerouslySetInnerHTML={{ __html: decodedPostContent }}></div>
             </div> */}
-            {videoBoolean ? (
+            {/* {videoBoolean ? (
                 <div></div>
-            ) : (
+            ) : ( */}
                 <Container text="dark">
                     <Link to={postUrl} className="text-decoration-none" target="_blank">
-                        <Image src={decodedPostContentSplitReplacedSliced} fluid/>
+                        <Image src={decodedPostContentSplitReplacedSliced} fluid />
                         {/* <p>{postSummary} via {parentPoster} on Tumblr</p> */}
                     </Link>
                 </Container>
-            )}
+            {/* )} */}
         </div >
     );
 }
