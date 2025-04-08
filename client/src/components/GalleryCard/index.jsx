@@ -23,14 +23,14 @@ const GalleryCard = (post) => {
     const postContent = post.post.postContent;
     // console.log('postContent: ', postContent);
 
-    const decodedPostContent = decodeURIComponent(postContent);
-    // console.log('decodedPostContent: ', decodedPostContent);
-    const decodedPostContentSplit = decodedPostContent.split(" ");
-    // console.log(decodedPostContentSplit[2]);
-    const decodedPostContentSplitReplaced = decodedPostContentSplit[2].replace("src=", "");
-    // console.log(decodedPostContentSplitReplaced);
-    const decodedPostContentSplitReplacedSliced = decodedPostContentSplitReplaced.slice(1, -1);
-    // console.log(decodedPostContentSplitReplacedSliced);
+    // const decodedPostContent = decodeURIComponent(postContent);
+    // // console.log('decodedPostContent: ', decodedPostContent);
+    // const decodedPostContentSplit = decodedPostContent.split(" ");
+    // // console.log(decodedPostContentSplit[2]);
+    // const decodedPostContentSplitReplaced = decodedPostContentSplit[2].replace("src=", "");
+    // // console.log(decodedPostContentSplitReplaced);
+    // const decodedPostContentSplitReplacedSliced = decodedPostContentSplitReplaced.slice(1, -1);
+    // // console.log(decodedPostContentSplitReplacedSliced);
 
     // const videoBoolean = /video/.test(decodedPostContentSplitReplacedSliced);
     // console.log(videoBoolean);
@@ -44,10 +44,11 @@ const GalleryCard = (post) => {
             {/* {videoBoolean ? (
                 <div></div>
             ) : ( */}
-            <Container className="" text="dark">
+            <Container className="image-container" text="dark">
                 <Link to={postUrl} className="text-decoration-none" target="_blank">
                     <div className="image-wrapper">
-                        <Image className="gallery-image" src={decodedPostContentSplitReplacedSliced} fluid />
+                        {/* <Image className="gallery-image" src={decodedPostContentSplitReplacedSliced} fluid /> */}
+                        <Image className="gallery-image" src={postContent} fluid />
                         {/* <p>{postSummary} via {parentPoster} on Tumblr</p> */}
                     </div>
                 </Link>
