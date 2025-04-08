@@ -9,7 +9,7 @@ const tumblrConsumerKey = process.env.TUMBLR_CONSUMER_KEY;
 const etsyKeystring = process.env.ETSY_KEYSTRING;
 
 const tumblrPostLimit = '10'; // str
-const etsyListingLimit = '20';
+const etsyListingLimit = '20'; // str
 // let etsyListingId = 0; // num
 // let listingImagesArray = []; // array
 
@@ -40,26 +40,20 @@ router.route('/getGalleryPosts').get(async (_req, res) => {
         // console.log('tumblrPostsArray[0].trail[0].post: ', tumblrPostsArray[0].trail[0].post);
         // console.log('tumblrPostsArray[0].trail[0].content: ', tumblrPostsArray[0].trail[0].content);
 
-        // console.log('tumblrPostsArray[1]: ', tumblrPostsArray[1]);
-        // console.log('tumblrPostsArray[1].trail: ', tumblrPostsArray[1].trail);
-        // console.log('tumblrPostsArray[1].trail[0].content: ', tumblrPostsArray[1].trail[0].content);
+        // filters out either text/video/gif posts, or posts whose image content is not contained in the typical field
+        const tumblrPostsArrayFiltered = tumblrPostsArray.filter((post) => /img/.test(post.trail[0].content));
+        // console.log(tumblrPostsArrayFiltered);
 
-        // console.log('tumblrPostsArray[9]: ', tumblrPostsArray[9]);
-        // console.log('tumblrPostsArray[9].trail: ', tumblrPostsArray[9].trail);
-        // console.log('tumblrPostsArray[9].trail[0].content: ', tumblrPostsArray[9].trail[0].content);
-        // image permalink ????
-
-        const galleryDataArray = await Promise.all(tumblrPostsArray.map(async (post) => {
-            return {
-
-                // postId: post.id, // num (may not be needed)
-                postUrl: post.post_url, // str
-                postSummary: post.summary, // str
-                parentPoster: post.trail[0].blog.name, // str
-                // parentPostUrl: post.parent_post_url, // str (may not be needed)
-                // parentPostId: post.trail[0].post.id, // str (may not be needed)
-                postContent: post.trail[0].content // str
-            }
+        const galleryDataArray = await Promise.all(tumblrPostsArrayFiltered.map(async (post) => {
+                return {
+                    // postId: post.id, // num (may not be needed)
+                    postUrl: post.post_url, // str
+                    postSummary: post.summary, // str (may not be needed)
+                    parentPoster: post.trail[0].blog.name, // str (may not be needed)
+                    // parentPostUrl: post.parent_post_url, // str (may not be needed)
+                    // parentPostId: post.trail[0].post.id, // str (may not be needed)
+                    postContent: post.trail[0].content // str
+                }
         }));
 
         // console.log('galleryDataArray: ', galleryDataArray);
@@ -97,7 +91,6 @@ router.route('/getFeaturedItems').get(async (_req, res) => {
 
             // const etsyListingId = listing.listing_id; // num
 
-
             const etsyImagesResponse = await fetch(`https://openapi.etsy.com/v3/application/listings/${listing.listing_id}/images`, {
                 method: 'GET',
                 mode: 'cors',
@@ -118,19 +111,11 @@ router.route('/getFeaturedItems').get(async (_req, res) => {
             const etsyImagesArray = rawEtsyImages.results;
 
             const listingImagesArray = await Promise.all(etsyImagesArray.map(async (image) => {
-                // return {
-                //     // listingId: listing.listing_id, // num (may not be needed)
-                //     listingTitle: listing.title, // str
-                //     // listingState: listing.state, // str (may not be needed)
-                //     listingUrl: listing.url, //str
-                //     // listingTags: listing.tags, // [str] (array of str) (may not be needed)
-                //     listingPrice: (listing.price.amount / listing.price.divisor) // num (divides price amount by price divisor)
-                // }
                 // console.log(image.url_570xN);
                 return image.url_570xN;
             }));
 
-            console.log(listingImagesArray);
+            // console.log(listingImagesArray);
 
             return {
 
@@ -179,7 +164,6 @@ router.route('/getActiveItems').get(async (_req, res) => {
 
             // const etsyListingId = listing.listing_id; // num
 
-
             const etsyImagesResponse = await fetch(`https://openapi.etsy.com/v3/application/listings/${listing.listing_id}/images`, {
                 method: 'GET',
                 mode: 'cors',
@@ -200,15 +184,6 @@ router.route('/getActiveItems').get(async (_req, res) => {
             const etsyImagesArray = rawEtsyImages.results;
 
             const listingImagesArray = await Promise.all(etsyImagesArray.map(async (image) => {
-                // return {
-                //     // listingId: listing.listing_id, // num (may not be needed)
-                //     listingTitle: listing.title, // str
-                //     // listingState: listing.state, // str (may not be needed)
-                //     listingUrl: listing.url, //str
-                //     // listingTags: listing.tags, // [str] (array of str) (may not be needed)
-                //     listingPrice: (listing.price.amount / listing.price.divisor) // num (divides price amount by price divisor)
-                // }
-                // console.log(image.url_570xN);
                 return image.url_570xN;
             }));
 
