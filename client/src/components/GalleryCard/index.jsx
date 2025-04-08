@@ -44,12 +44,14 @@ const GalleryCard = (post) => {
             {/* {videoBoolean ? (
                 <div></div>
             ) : ( */}
-                <Container text="dark">
-                    <Link to={postUrl} className="text-decoration-none" target="_blank">
-                        <Image src={decodedPostContentSplitReplacedSliced} fluid />
+            <Container className="" text="dark">
+                <Link to={postUrl} className="text-decoration-none" target="_blank">
+                    <div className="image-wrapper">
+                        <Image className="gallery-image" src={decodedPostContentSplitReplacedSliced} fluid />
                         {/* <p>{postSummary} via {parentPoster} on Tumblr</p> */}
-                    </Link>
-                </Container>
+                    </div>
+                </Link>
+            </Container>
             {/* )} */}
         </div >
     );
