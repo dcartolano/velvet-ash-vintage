@@ -22,3 +22,17 @@ a:active {
     /* color: #5a482c; */
     color: #e35226;
 }
+
+/* .item-image {
+    width: auto;
+    height: calc(25% -30px);
+    object-fit: cover;
+    overflow: hidden;
+    object-position: 50% 50%;
+}
+
+.image-container {
+    max-height: 80%;
+    height: 20px;
+    width: 100%;
+} */
