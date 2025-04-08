@@ -47,3 +47,16 @@
   top: 40%;
   left: 49%;
 }
+
+.gallery-container {
+  max-width: 900px;
+  width: 90%;
+}
+
+/* .gallery-col {
+  max-height: 300px;
+} */
+
+/* .gallery-row {
+  max-width: 80%;
+} */
