@@ -12,7 +12,7 @@ const [shopData, setShopData] = useState([]);
 
     const fetchShopData = async () => {
         try {
-            const response = await fetch('/api/getFeaturedItems');
+            const response = await fetch('/api/getActiveItems');
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -34,7 +34,7 @@ const [shopData, setShopData] = useState([]);
     return (
         <div className="">
             <Container className="mb-5" fluid>
-                <p className="fs-3 fw-light">Featured Items</p>
+                <p className="fs-3 fw-light">Recently Listed Items</p>
                 <Row xs={2} sm={3} md={3} lg={4}>
                     {/* <Row> */}
                     {shopData.length > 0 ? (
