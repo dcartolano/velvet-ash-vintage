@@ -8,7 +8,7 @@ const router = express.Router();
 const tumblrConsumerKey = process.env.TUMBLR_CONSUMER_KEY;
 const etsyKeystring = process.env.ETSY_KEYSTRING;
 
-const tumblrPostLimit = '10'; // str
+const tumblrPostLimit = '12'; // str
 const etsyListingLimit = '20'; // str
 // let etsyListingId = 0; // num
 // let listingImagesArray = []; // array
@@ -32,7 +32,7 @@ router.route('/getGalleryPosts').get(async (_req, res) => {
         const rawTumblrPosts = await tumblrResponse.json();
         // console.log('Tumblr Response:', rawTumblrPosts); // Log the posts response for debugging
 
-        const tumblrPostsArray = rawTumblrPosts.response.posts;
+        const tumblrPostsArray = await rawTumblrPosts.response.posts;
         // console.log('tumblrPostsArray: ', tumblrPostsArray);
         // console.log('tumblrPostsArray[0]: ', tumblrPostsArray[0]);
         // console.log('tumblrPostsArray[0].parent_post_url: ', tumblrPostsArray[0].parent_post_url);
@@ -41,19 +41,30 @@ router.route('/getGalleryPosts').get(async (_req, res) => {
         // console.log('tumblrPostsArray[0].trail[0].content: ', tumblrPostsArray[0].trail[0].content);
 
         // filters out either text/video/gif posts, or posts whose image content is not contained in the typical field
-        const tumblrPostsArrayFiltered = tumblrPostsArray.filter((post) => /img/.test(post.trail[0].content));
+        const tumblrPostsArrayFiltered = await tumblrPostsArray.filter((post) => /img/.test(post.trail[0].content));
         // console.log(tumblrPostsArrayFiltered);
 
         const galleryDataArray = await Promise.all(tumblrPostsArrayFiltered.map(async (post) => {
-                return {
-                    // postId: post.id, // num (may not be needed)
-                    postUrl: post.post_url, // str
-                    postSummary: post.summary, // str (may not be needed)
-                    parentPoster: post.trail[0].blog.name, // str (may not be needed)
-                    // parentPostUrl: post.parent_post_url, // str (may not be needed)
-                    // parentPostId: post.trail[0].post.id, // str (may not be needed)
-                    postContent: post.trail[0].content // str
-                }
+
+            const decodedPostContent = decodeURIComponent(post.trail[0].content);
+            // console.log('decodedPostContent: ', decodedPostContent);
+            const decodedPostContentSplit = decodedPostContent.split(" ");
+            // console.log(decodedPostContentSplit[2]);
+            const decodedPostContentSplitReplaced = decodedPostContentSplit[2].replace("src=", "");
+            // console.log(decodedPostContentSplitReplaced);
+            const decodedPostContentSplitReplacedSliced = decodedPostContentSplitReplaced.slice(1, -1);
+            // console.log(decodedPostContentSplitReplacedSliced);
+
+            return {
+                // postId: post.id, // num (may not be needed)
+                postUrl: post.post_url, // str
+                postSummary: post.summary, // str (may not be needed)
+                parentPoster: post.trail[0].blog.name, // str (may not be needed)
+                // parentPostUrl: post.parent_post_url, // str (may not be needed)
+                // parentPostId: post.trail[0].post.id, // str (may not be needed)
+                // postContent: post.trail[0].content // str
+                postContent: decodedPostContentSplitReplacedSliced // str
+            }
         }));
 
         // console.log('galleryDataArray: ', galleryDataArray);
