@@ -16,9 +16,9 @@ const FeaturedCard = (product) => {
         <Card.Link href={currentProduct.listingUrl} className="text-decoration-none text-start" target="_blank">
             <Card className="border-0" text="dark" >
                 <Card.Body>
-                    <Container className="image-container">
+                    {/* <Container className="image-container"> */}
                         <Card.Img className="rounded-0 item-image" variant="top" src={proxiedImageUrl} alt={currentProduct.listingTitle} />
-                    </Container>
+                    {/* </Container> */}
                     <Card.Body className="p-0 mt-2 item-info">
                         <Card.Title className="item-info m-0 fw-bold">{currentProduct.listingTitle}</Card.Title>
                         <Card.Text className="item-price fw-bold">{`$${currentProduct.listingPrice}`}</Card.Text>
