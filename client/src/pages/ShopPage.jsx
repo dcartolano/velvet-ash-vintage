@@ -5,6 +5,7 @@ import FeaturedCard from '../components/FeaturedCard';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Spinner from 'react-bootstrap/Spinner';
 
 const ShopPage = () => {
 
@@ -48,7 +49,9 @@ const [shopData, setShopData] = useState([]);
                         ))
                     ) : (
                         <div>
-                            {/* <p>no featured items to show!</p> */}
+                            <Spinner className="spinner" animation="grow" variant="success" size="sm" role="status">
+                                <span className="visually-hidden">Loading...</span>
+                            </Spinner>
                         </div>
                     )}
                 </Row>
