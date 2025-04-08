@@ -36,7 +36,7 @@ const GalleryPage = () => {
         <div className="">
             <Container className="" fluid>
                 {/* <p className="">Gallery</p> */}
-                <Row xs={2} md={3} lg={3}>
+                <Row className="" xs={2} md={3} lg={3}>
                     {galleryData.length > 0 ? (
                         galleryData.map((post, index) => (
                             <Col xs={6} md={4} lg={4} className="p-3" key={index}>
