@@ -20,8 +20,8 @@ const FeaturedCard = (product) => {
                         <Card.Img className="rounded-0 item-image" variant="top" src={proxiedImageUrl} alt={currentProduct.listingTitle} />
                     </Container>
                     <Card.Body className="p-0 mt-2 item-info">
-                        <Card.Title className="item-info m-0">{currentProduct.listingTitle}</Card.Title>
-                        <Card.Text className="item-price">{`$${currentProduct.listingPrice}`}</Card.Text>
+                        <Card.Title className="item-info m-0 fw-bold">{currentProduct.listingTitle}</Card.Title>
+                        <Card.Text className="item-price fw-bold">{`$${currentProduct.listingPrice}`}</Card.Text>
                     </Card.Body>
                 </Card.Body>
             </Card>
