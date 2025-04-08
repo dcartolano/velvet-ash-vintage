@@ -48,7 +48,7 @@ const [shopData, setShopData] = useState([]);
                         ))
                     ) : (
                         <div>
-                            <p>no featured items to show!</p>
+                            {/* <p>no featured items to show!</p> */}
                         </div>
                     )}
                 </Row>

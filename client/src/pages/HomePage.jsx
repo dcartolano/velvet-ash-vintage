@@ -84,7 +84,7 @@ const HomePage = () => {
                         ))
                     ) : (
                         <div>
-                            <p>please add a featured item!</p>
+                            {/* <p>please add a featured item!</p> */}
                         </div>
                     )}
                 </Row>
