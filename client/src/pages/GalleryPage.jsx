@@ -33,13 +33,13 @@ const GalleryPage = () => {
     }, []);
 
     return (
-        <div className="">
-            <Container className="" fluid>
+        <div className="pt-5">
+            <Container className="gallery-container" fluid>
                 {/* <p className="">Gallery</p> */}
-                <Row className="" xs={2} md={3} lg={3}>
+                <Row className="d-flex align-items-center gallery-row" xs={2} md={3} lg={3}>
                     {galleryData.length > 0 ? (
                         galleryData.map((post, index) => (
-                            <Col xs={6} md={4} lg={4} className="p-3" key={index}>
+                            <Col xs={6} sm={4} lg={4} className="p-2 gallery-col" key={index}>
                                 <GalleryCard
                                     post={post}
                                 />
