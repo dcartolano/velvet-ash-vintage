@@ -33,7 +33,7 @@ const GalleryPage = () => {
 
     return (
         <div className="">
-            <Container className="">
+            <Container className="" fluid>
                 {/* <p className="">Gallery</p> */}
                 <Row xs={2} md={3} lg={3}>
                     {galleryData.length > 0 ? (
