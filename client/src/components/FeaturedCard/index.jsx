@@ -1,6 +1,8 @@
 import './index.css';
 
 import Card from 'react-bootstrap/Card';
+import Image from 'react-bootstrap/Image';
+import Container from 'react-bootstrap/esm/Container';
 
 const FeaturedCard = (product) => {
     // console.log(product);
@@ -14,7 +16,9 @@ const FeaturedCard = (product) => {
         <Card.Link href={currentProduct.listingUrl} className="text-decoration-none text-start" target="_blank">
             <Card className="border-0" text="dark" >
                 <Card.Body>
-                    <Card.Img className="rounded-0" variant="top" src={proxiedImageUrl} alt={currentProduct.listingTitle} />
+                    <Container className="image-container" fluid>
+                        <Card.Img className="rounded-0 item-image" variant="top" src={proxiedImageUrl} alt={currentProduct.listingTitle} fluid />
+                    </Container>
                     <Card.Body className="p-0 mt-2 item-info">
                         <Card.Title className="item-info m-0">{currentProduct.listingTitle}</Card.Title>
                         <Card.Text className="item-price">{`$${currentProduct.listingPrice}`}</Card.Text>
