@@ -17,7 +17,7 @@ const Socials = () => {
 
     return (
         <Container className="pt-5 pb-5">
-            <p className="fs-3 fw-lighter">find me on...</p>
+            <p className="title fs-3 fw-lighter">find me on...</p>
             <Container className="d-inline-block align-center" fluid>
                 <Row xxs={2} sm={4} className="m-0 align-middle">
                     <Col className="">

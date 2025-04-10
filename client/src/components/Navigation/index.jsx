@@ -29,7 +29,7 @@ const Navigation = () => {
         <div>
             <Navbar expand="md" data-bs-theme="light">
                 <Container>
-                    <Navbar.Brand href="/" className="fs-2 fw-light">
+                    <Navbar.Brand href="/" className="title fs-2 fw-light">
                         <img
                             alt="Velvet Ash Vintage Logo"
                             src={vavLogo}
