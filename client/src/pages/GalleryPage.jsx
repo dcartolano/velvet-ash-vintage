@@ -33,7 +33,7 @@ const GalleryPage = () => {
     }, []);
 
     return (
-        <div className="pt-5">
+        <div className="mb-5 pt-5">
             <Container className="gallery-container" fluid>
                 {/* <p className="">Gallery</p> */}
                 <Row className="d-flex align-items-center gallery-row" xs={2} md={3} lg={3}>
