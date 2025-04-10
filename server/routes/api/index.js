@@ -32,7 +32,7 @@ router.route('/getGalleryPosts').get(async (_req, res) => {
         const rawTumblrPosts = await tumblrResponse.json();
         // console.log('Tumblr Response:', rawTumblrPosts); // Log the posts response for debugging
 
-        const tumblrPostsArray = await rawTumblrPosts.response.posts;
+        const tumblrPostsArray = rawTumblrPosts.response.posts;
         // console.log('tumblrPostsArray: ', tumblrPostsArray);
         // console.log('tumblrPostsArray[0]: ', tumblrPostsArray[0]);
         // console.log('tumblrPostsArray[0].parent_post_url: ', tumblrPostsArray[0].parent_post_url);
@@ -46,14 +46,16 @@ router.route('/getGalleryPosts').get(async (_req, res) => {
 
         const galleryDataArray = await Promise.all(tumblrPostsArrayFiltered.map(async (post) => {
 
-            const decodedPostContent = decodeURIComponent(post.trail[0].content);
+            // const decodedPostContent = decodeURIComponent(post.trail[0].content);
             // console.log('decodedPostContent: ', decodedPostContent);
-            const decodedPostContentSplit = decodedPostContent.split(" ");
+            // const decodedPostContentSplit = decodedPostContent.split(" ");
             // console.log(decodedPostContentSplit[2]);
-            const decodedPostContentSplitReplaced = decodedPostContentSplit[2].replace("src=", "");
+            // const decodedPostContentSplitReplaced = decodedPostContentSplit[2].replace("src=", "");
             // console.log(decodedPostContentSplitReplaced);
-            const decodedPostContentSplitReplacedSliced = decodedPostContentSplitReplaced.slice(1, -1);
+            // const decodedPostContentSplitReplacedSliced = decodedPostContentSplitReplaced.slice(1, -1);
             // console.log(decodedPostContentSplitReplacedSliced);
+
+            const decodedPostContentSplitReplacedSliced = decodeURIComponent(post.trail[0].content).split(" ")[2].replace("src=", "").slice(1, -1);
 
             return {
                 // postId: post.id, // num (may not be needed)
@@ -123,7 +125,8 @@ router.route('/getFeaturedItems').get(async (_req, res) => {
 
             const listingImagesArray = await Promise.all(etsyImagesArray.map(async (image) => {
                 // console.log(image.url_570xN);
-                return image.url_570xN;
+                // return image.url_570xN;
+                return 'https://corsproxy.io/?url=' + image.url_570xN;
             }));
 
             // console.log(listingImagesArray);
