@@ -1,8 +1,6 @@
 import './index.css';
 
 import etsySimple from '../../assets/etsy-e-circle-larger-margin.png';
-// import etsySimple from '../../assets/etsy-e-circle-small-margin.svg';
-// import etsySimple from '../../assets/etsy-e-filled-in.png';
 import instagramIconSimple from '../../assets/instagram-icon-simple.png';
 import depopSimple from '../../assets/depop-d-filled-in.png';
 import tiktokSimple from '../../assets/tiktok-simple.png';
