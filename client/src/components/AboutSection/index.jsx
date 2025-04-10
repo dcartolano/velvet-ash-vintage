@@ -1,6 +1,5 @@
 import './index.css';
 
-// import ashPhoto1 from '../../assets/ash-about-1.jpg';
 import ashPhoto2 from '../../assets/ash-about-2.jpg';
 
 import Image from 'react-bootstrap/Image';
@@ -9,8 +8,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const AboutSection = () => {
-    // let breakpoint;
-
     return (
         <Container fluid>
             <Row>
