@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import FeaturedCard from '../components/FeaturedCard';
-// import PhotoAndSlogan from '../components/PhotoAndSlogan';
 import PhotosOnly from '../components/PhotosOnly';
-// import Socials from '../components/Socials';
 
 // import curvedWoodenBox from '../assets/curved-wooden-box.jpg';
 // import pinkGrayMarbleChessBoard from '../assets/pink-gray-marble-chess-board.jpg';
@@ -91,9 +89,7 @@ const HomePage = () => {
                 </Row>
             </Container>
             {/* <hr className="p-2 align-center" style={{ width: '98%'}}/> */}
-            {/* <PhotoAndSlogan/> */}
             <PhotosOnly />
-            {/* <Socials/> */}
         </div >
     );
 }
