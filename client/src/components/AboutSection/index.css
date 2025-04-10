@@ -15,6 +15,9 @@
     .image-column {
         height: 360px;
     }
+    /* .about-title {
+        font-size: 13px;
+    } */
 }
 
 @media (width >= 768px) {
