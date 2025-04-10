@@ -4,6 +4,15 @@
     color: #2E542F;
 }
 
+/* @media (width < 465px) {
+    .image-column {
+        height: 300px;
+    }
+    .about-title {
+        font-size: 8px;
+    }
+} */
+
 @media (width < 768px) {
     .about-image {
         width: 100%;
@@ -14,9 +23,6 @@
     .image-column {
         height: 360px;
     }
-    /* .about-title {
-        font-size: 13px;
-    } */
 }
 
 @media (width >= 768px) {
