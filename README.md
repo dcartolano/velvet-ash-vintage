@@ -39,6 +39,8 @@ In production (deployed):
 
 ## Usage
 
+You can find the deployed site [here](https://velvet-ash-vintage.onrender.com/). 
+
 Using the app is designed to be as straightforward and user friendly as possible. Links to all pages are in the navbar, and for small screens and mobile devices, a button with 3 horizontal lines will be shown, which if clicked will expand the navbar and display the pages. At the bottom of the page, links to the client's other shops and profiles are linked on icons for each associated platform.
 
 The user will initially see the `Home` page, which shows featured items pulled from the client's Etsy shop, below which is a photo spread containing sample product photos provided by the client.
